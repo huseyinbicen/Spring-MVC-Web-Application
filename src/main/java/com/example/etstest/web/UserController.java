@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/")
     public String getHIndex(Model model){
-        model.addAttribute("name", "Hüseyin");
+        model.addAttribute("title", "Home");
 
         return "index";
     }
@@ -31,7 +31,7 @@ public class UserController {
     public String home(Model model) {
         model.addAttribute("activePage", "list");
         model.addAttribute("users", userQueryService.getAllUsers());
-        model.addAttribute("name", "Hüseyin");
+        model.addAttribute("title", "List Users");
 
         return "list";
     }
@@ -53,6 +53,7 @@ public class UserController {
 
     @GetMapping(value = "/add")
     public String getAdd(Model model) {
+        model.addAttribute("title", "User Registration");
         model.addAttribute("activePage", "add");
         model.addAttribute("user", new User());
 
